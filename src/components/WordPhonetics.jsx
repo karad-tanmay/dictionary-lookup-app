@@ -24,7 +24,7 @@ const WordPhonetics = ({word, phonetics}) => {
             <h1 className='text-xl mb-2'>Phonetics:</h1>
             <div className='flex flex-wrap'>
                 {phonetics.map((item, index) => (
-                    <div key={index} className='flex justify-start px-3 py-2 gap-3 content-center border border-white/70'>
+                    <div key={index} className='flex justify-start px-3 py-2 gap-3 content-center border border-white/80'>
                         <span className='text-lg italic min-w-0 flex-shrink-0 content-center'>
                             {item.text}
                         </span>
