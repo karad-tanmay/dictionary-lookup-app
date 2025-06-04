@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Header from './components/Header';
+import WordPhonetics from './components/WordPhonetics';
 
 function App() {
   const [wordData, setWordData] = useState(null);
@@ -17,14 +18,16 @@ function App() {
         phonetics: data[0].phonetics,
         meanings: data[0].meanings
       });
+      // console.log(data[0].word);
+      // console.log(wordData.word);
     } catch (error) {
       console.error('Error fetching word data.', error);
       alert('Failed to fetch word data. Please try again.');
     }
   };
 
-  const handleSearch = (word) => {
-    fetchWordData(word);
+  const handleSearch = async (word) => {
+    await fetchWordData(word);
     setSearchValue('');
   };
 
@@ -41,11 +44,21 @@ function App() {
       <div className='absolute inset-0 bg-black/20' />
 
       <div className='relative z-10 min-h-screen flex flex-col items-center justify-start px-6 py-8'>
+        
         <Header
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           onSearch={handleSearch}
         />
+
+        {
+          wordData &&
+          <WordPhonetics
+            word={wordData.word}
+            phonetics={wordData.phonetics}
+          />
+        }
+
       </div>
 
     </div>
