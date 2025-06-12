@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './components/Header';
 import WordPhonetics from './components/WordPhonetics';
 import Meanings from './components/Meanings';
@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 function App() {
   const [wordData, setWordData] = useState(null);
   const [searchValue, setSearchValue] = useState('');
+  const defaultWord = "welcome";
 
   const fetchWordData = async (word) => {
     try {
@@ -33,19 +34,16 @@ function App() {
     setSearchValue('');
   };
 
+  useEffect(() => {
+    fetchWordData(defaultWord);
+  }, []);
+
   return (
     <div className='min-h-screen relative overflow-hidden'>
 
-      <div
-        className='absolute inset-0 bg-cover bg-no-repeat filter grayscale'
-        style={{
-          backgroundImage: "url('/assets/bg-1.png')"
-        }}
-      />
+      <div className='absolute inset-0 bg-white' />
 
-      <div className='absolute inset-0 bg-black/20' />
-
-      <div className='relative z-10 min-h-screen flex flex-col items-center justify-start px-6 py-8'>
+      <div className='relative z-10 min-h-screen flex flex-col items-center justify-start'>
 
         <Header
           searchValue={searchValue}

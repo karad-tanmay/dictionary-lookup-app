@@ -17,14 +17,14 @@ const WordPhonetics = ({word, phonetics}) => {
     };
 
     return (
-        <div className='text-white font-[Iosevka] flex-col justify-start w-full mb-4'>
+        <div className='text-violet-800 font-[Iosevka] flex-col justify-start w-full mb-4 px-5'>
 
             <h1 className='text-5xl font-bold mb-2'>{word}</h1>
 
             <h1 className='text-xl mb-2'>Phonetics:</h1>
-            <div className='flex flex-wrap'>
+            <div className='flex flex-wrap gap-x-3'>
                 {phonetics.map((item, index) => (
-                    <div key={index} className='flex justify-start px-3 py-2 gap-3 content-center border border-white/80'>
+                    <div key={index} className='flex justify-start px-3 py-2 gap-3 content-center border-2 rounded-md border-violet-800'>
                         <span className='text-lg italic min-w-0 flex-shrink-0 content-center'>
                             {item.text}
                         </span>
@@ -32,10 +32,10 @@ const WordPhonetics = ({word, phonetics}) => {
                         <button
                             type='submit'
                             value={item.audio}
-                            className='p-1.5 rounded-full border border-2 border-white/70 bg-white/20 hover:bg-white/50 hover:text-white'
+                            className='p-1.5 rounded-full border border-2 bg-violet-700 border-violet-800'
                             onClick={() => handleAudioReq(item.audio)}
                             >
-                            <Volume2 className='text-white/70 hover:text-white'/>
+                            <Volume2 className='text-white/80 hover:text-white/90'/>
                         </button>}
                     </div>
                 ))}
