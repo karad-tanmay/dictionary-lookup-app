@@ -8,7 +8,7 @@ const Header = ({ searchValue, setSearchValue, onSearch }) => {
     };
 
     return (
-        <div className='flex flex-col-reverse sm:flex-row justify-between items-center gap-4 mb-8 w-full max-w-screen bg-violet-700 px-3 py-2'>
+        <div className='flex flex-col-reverse sm:flex-row justify-between items-center gap-2 mb-8 w-full max-w-screen bg-violet-700 px-3 py-2'>
             <form onSubmit={handleSearchSubmit} className='flex-1 max-w-md w-full'>
                 <div className='relative'>
                     <input
